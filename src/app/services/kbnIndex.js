@@ -100,7 +100,7 @@ function (angular, _, config, moment) {
         // url: config.elasticsearch + "/_aliases",
         // url: config.solr + "/schema/fields",
         // NOTE: Hard-coded to start -10YEARS from NOW
-        url: config.solr + config.solr_core + "/select?q=*:*&wt=json&rows=0&omitHeader=true&facet=true&facet.range=event_timestamp&facet.range.start=NOW-10YEARS/DAY&facet.range.end=NOW&facet.range.gap=%2B1DAY&facet.mincount=1",
+        url: config.solr + config.solr_core + "/select?q=*:*&wt=json&rows=0&omitHeader=true&facet=true&facet.range=order_dt&facet.range.start=NOW-10YEARS/DAY&facet.range.end=NOW&facet.range.gap=%2B1DAY&facet.mincount=1",
 
         method: "GET"
       }).error(function(data, status) {
@@ -127,7 +127,7 @@ function (angular, _, config, moment) {
 
         var indices = [];
 
-        var timestamp_array = p.data.facet_counts.facet_ranges.event_timestamp.counts;
+        var timestamp_array = p.data.facet_counts.facet_ranges.order_dt.counts;
 
         for (var i=0; i < timestamp_array.length; i=i+2) {
           // extract and convert timestamp to YYYY.MM.DD

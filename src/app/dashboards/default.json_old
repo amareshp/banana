@@ -29,12 +29,10 @@
       ],
       "list": {
         "0": {
-          "from": "NOW/YEAR-1YEAR",
-          "to": "NOW/YEAR%2B1YEAR",
+          "from": "2014-04-02T05:07:22.216Z",
+          "to": "2014-04-02T05:22:22.216Z",
           "field": "order_dt",
           "type": "time",
-          "fromDateObj": "2015-05-24T21:23:40.937Z",
-          "toDateObj": "2016-05-24T21:23:40.937Z",
           "mandate": "must",
           "active": true,
           "alias": "",
@@ -51,7 +49,7 @@
       "title": "Overview",
       "height": "50px",
       "editable": true,
-      "collapse": true,
+      "collapse": false,
       "collapsable": true,
       "panels": [
         {
@@ -97,7 +95,7 @@
           "loadingEditor": false,
           "status": "Stable",
           "mode": "relative",
-          "spyable": true,
+          "spyable" : true,
           "time_options": [
             "5m",
             "15m",
@@ -112,7 +110,7 @@
             "1y",
             "5y"
           ],
-          "timespan": "1y",
+          "timespan": "15m",
           "timefield": "order_dt",
           "timeformat": "",
           "refresh": {
@@ -127,7 +125,7 @@
           "error": false,
           "span": 6,
           "editable": true,
-          "spyable": true,
+          "spyable" : true,
           "group": [
             "default"
           ],
@@ -155,7 +153,7 @@
           "error": false,
           "span": 12,
           "editable": true,
-          "spyable": true,
+          "spyable" : true,
           "group": [
             "default"
           ],
@@ -167,7 +165,7 @@
       "title": "Facets, Histogram and Table",
       "height": "150px",
       "editable": true,
-      "collapse": true,
+      "collapse": false,
       "collapsable": true,
       "panels": [
         {
@@ -194,91 +192,7 @@
       "collapsable": true,
       "panels": [
         {
-          "span": 12,
-          "editable": true,
-          "type": "table",
-          "loadingEditor": false,
-          "status": "Stable",
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0
-            ],
-            "query": "q=*&fq=order_dt:[NOW/YEAR-1YEAR%20TO%20NOW/YEAR%2B1YEAR]&wt=json&rows=500",
-            "basic_query": "q=*&fq=order_dt:[NOW/YEAR-1YEAR%20TO%20NOW/YEAR%2B1YEAR]",
-            "custom": ""
-          },
-          "size": 100,
-          "pages": 5,
-          "offset": 0,
-          "sort": [],
-          "sortable": false,
-          "group": "default",
-          "style": {
-            "font-size": "9pt"
-          },
-          "overflow": "min-height",
-          "fields": [
-            "order_no",
-            "line_status",
-            "order_dt",
-            "source"
-          ],
-          "important_fields": [
-            "cust_email",
-            "cust_fname",
-            "cust_id",
-            "cust_lname",
-            "data",
-            "fulfillment_type",
-            "group_order_no",
-            "item_id",
-            "line_status",
-            "line_status_code",
-            "modified_dt",
-            "order_date",
-            "order_dt",
-            "order_line_no",
-            "order_no",
-            "order_type",
-            "prod_name",
-            "return_by_date",
-            "seller_id",
-            "shard_id",
-            "ship_method",
-            "source",
-            "upc"
-          ],
-          "highlight": [],
-          "header": true,
-          "paging": true,
-          "field_list": true,
-          "trimFactor": 300,
-          "normTimes": true,
-          "spyable": true,
-          "saveOption": "json",
-          "exportSize": 500,
-          "exportAll": true,
-          "displayLinkIcon": true,
-          "imageFields": [],
-          "imgFieldWidth": "auto",
-          "imgFieldHeight": "85px",
-          "show_queries": true,
-          "maxNumCalcTopFields": 20,
-          "calcTopFieldValuesFromAllData": false,
-          "title": "Order Data"
-        }
-      ]
-    },
-    {
-      "title": "Events",
-      "height": "650px",
-      "editable": true,
-      "collapse": false,
-      "collapsable": true,
-      "panels": [
-        {
-          "span": 12,
+          "span": 6,
           "editable": true,
           "type": "histogram",
           "loadingEditor": false,
@@ -288,7 +202,7 @@
             "ids": [
               0
             ],
-            "query": "q=*&wt=json&rows=0&fq=order_dt:[NOW/YEAR-1YEAR%20TO%20NOW/YEAR%2B1YEAR]&facet=true&facet.range=order_dt&facet.range.start=NOW/YEAR-1YEAR&facet.range.end=NOW/YEAR%2B1YEAR&facet.range.gap=%2B1DAY\n",
+            "query": "q=*&wt=json&rows=0",
             "custom": ""
           },
           "max_rows": 100000,
@@ -296,7 +210,7 @@
           "group_field": null,
           "auto_int": true,
           "resolution": 100,
-          "interval": "1d",
+          "interval": "10s",
           "intervals": [
             "auto",
             "1s",
@@ -321,19 +235,101 @@
           "stack": true,
           "points": false,
           "lines": false,
-          "lines_smooth": false,
           "legend": true,
           "x-axis": true,
           "y-axis": true,
           "percentage": false,
           "interactive": true,
           "options": true,
-          "show_queries": true,
           "tooltip": {
             "value_type": "cumulative",
             "query_as_alias": false
           },
-          "title": "Order Count"
+          "title": "Event Counts"
+        },
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "terms",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*&wt=json&rows=0&fq=order_dt:[2014-04-02T05:07:22.000Z%20TO%202014-04-02T05:22:22.000Z]&facet=true&facet.field=message&facet.range=order_dt&facet.range.start=2014-04-02T05:07:22.000Z&facet.range.end=2014-04-02T05:22:22.000Z&facet.range.gap=%2B1DAY&facet.limit=100"
+          },
+          "field": "message",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 100,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": true,
+          "labels": false,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "none",
+          "title": "Message Terms",
+          "spyable": true,
+          "time_field": "order_dt"
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "height": "650px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "table",
+          "size": 100,
+          "pages": 5,
+          "offset": 0,
+          "sort": [
+            "id",
+            "desc"
+          ],
+          "style": {
+            "font-size": "9pt"
+          },
+          "overflow": "min-height",
+          "fields": [
+            "message"
+          ],
+          "highlight": [],
+          "sortable": true,
+          "header": true,
+          "paging": true,
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*&wt=json&rows=500&fq=order_dt:[2014-04-02T05:07:22.000Z%20TO%202014-04-02T05:22:22.000Z]&sort=id desc"
+          },
+          "field_list": true,
+          "status": "Stable",
+          "trimFactor": 300,
+          "normTimes": true,
+          "title": "Events",
+          "time_field": "order_dt"
         }
       ]
     }
@@ -359,17 +355,12 @@
     "load_elasticsearch": true,
     "load_elasticsearch_size": 20,
     "load_local": true,
-    "hide": false,
-    "dropdown_collections": false
+    "hide": false
   },
   "solr": {
     "server": "/solr/",
     "core_name": "order_store.orderdata",
-    "core_list": [
-      "order_store.lookupdata",
-      "order_store.orderdata",
-      "order_store.orderhistory"
-    ],
+    "core_list": [],
     "global_params": ""
   }
 }

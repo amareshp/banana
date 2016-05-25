@@ -27,7 +27,7 @@
         "0": {
           "from": "2014-04-01T07:47:30.228Z",
           "to": "2014-04-02T07:47:30.228Z",
-          "field": "event_timestamp",
+          "field": "order_dt",
           "type": "time",
           "mandate": "must",
           "active": true,
@@ -70,7 +70,7 @@
             "30d"
           ],
           "timespan": "24h",
-          "timefield": "event_timestamp",
+          "timefield": "order_dt",
           "timeformat": "",
           "refresh": {
             "enable": true,
@@ -150,7 +150,7 @@
           ],
           "type": "histogram",
           "mode": "count",
-          "time_field": "event_timestamp",
+          "time_field": "order_dt",
           "value_field": null,
           "max_rows": 100000,
           "auto_int": true,
@@ -175,7 +175,7 @@
             "ids": [
               0
             ],
-            "query": "q=error&wt=json&rows=0&fq=event_timestamp:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&facet=true&facet.range=event_timestamp&facet.range.start=2014-04-01T07:47:30.228Z/DAY&facet.range.end=2014-04-02T07:47:30.228Z%2B1DAY/DAY&facet.range.gap=%2B10MINUTE",
+            "query": "q=error&wt=json&rows=0&fq=order_dt:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&facet=true&facet.range=order_dt&facet.range.start=2014-04-01T07:47:30.228Z/DAY&facet.range.end=2014-04-02T07:47:30.228Z%2B1DAY/DAY&facet.range.gap=%2B10MINUTE",
             "custom": ""
           },
           "title": "System Log Messages",
@@ -213,7 +213,7 @@
             "ids": [
               0
             ],
-            "query": "q=error&wt=json&rows=0&fq=event_timestamp:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&facet=true&facet.field=syslog_program&facet.range=event_timestamp&facet.range.start=2014-04-01T07:47:30.228Z&facet.range.end=2014-04-02T07:47:30.228Z&facet.range.gap=%2B1DAY&facet.limit=10",
+            "query": "q=error&wt=json&rows=0&fq=order_dt:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&facet=true&facet.field=syslog_program&facet.range=order_dt&facet.range.start=2014-04-01T07:47:30.228Z&facet.range.end=2014-04-02T07:47:30.228Z&facet.range.gap=%2B1DAY&facet.limit=10",
             "custom": ""
           },
           "field": "syslog_program",
@@ -233,7 +233,7 @@
           "counter_pos": "none",
           "spyable": true,
           "title": "Programs",
-          "time_field": "event_timestamp"
+          "time_field": "order_dt"
         }
       ]
     },
@@ -257,7 +257,7 @@
           "pages": 100,
           "offset": 0,
           "sort": [
-            "event_timestamp",
+            "order_dt",
             "desc"
           ],
           "style": {
@@ -265,7 +265,7 @@
           },
           "overflow": "min-height",
           "fields": [
-            "event_timestamp",
+            "order_dt",
             "syslog_program",
             "message"
           ],
@@ -279,14 +279,14 @@
             "ids": [
               0
             ],
-            "query": "q=error&wt=json&rows=1000&fq=event_timestamp:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&sort=event_timestamp desc",
+            "query": "q=error&wt=json&rows=1000&fq=order_dt:[2014-04-01T07:47:30.228Z%20TO%202014-04-02T07:47:30.228Z]&sort=order_dt desc",
             "custom": ""
           },
           "field_list": true,
           "status": "Stable",
           "trimFactor": 300,
           "normTimes": true,
-          "time_field": "event_timestamp"
+          "time_field": "order_dt"
         }
       ]
     }

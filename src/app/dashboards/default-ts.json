@@ -76,7 +76,7 @@
             "5y"
           ],
           "timespan": "15m",
-          "timefield": "event_timestamp",
+          "timefield": "order_dt",
           "timeformat": "",
           "refresh": {
             "enable": false,
@@ -164,7 +164,7 @@
           "type": "histogram",
           "loadingEditor": false,
           "mode": "count",
-          "time_field": "event_timestamp",
+          "time_field": "order_dt",
           "queries": {
             "mode": "all",
             "ids": [
@@ -298,7 +298,7 @@
   },
   "solr": {
     "server": "/solr/",
-    "core_name": "collection1",
+    "core_name": "order_store.orderdata",
     "core_list": [],
     "global_params": ""
   }
